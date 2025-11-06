@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern E-commerce Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Outfit:wght@900&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: New1;
+            src: url(font/MomoSignature-Regular.ttf);
+        }
+        /* Custom styles for the rating stars */
+        .rating-star-filled {
+            color: #FFD700;
+            /* Gold */
+        }
+
+        /* Styles for the image slider */
+        #slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            /* Each slide takes up 100% of the container width */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #logo {
+            font-family: New1;
+            font-weight: 600;
+            
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 antialiased">
+
+    <header class="shadow-md bg-white sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-[#9E428E]" id="logo"> Man Online Store </a>
+            <nav class="hidden md:flex space-x-6 text-gray-600">
+                <a href="#" class="hover:text-indigo-600 transition duration-300">Home</a>
+                <a href="#" class="hover:text-indigo-600 transition duration-300">Products</a>
+                <a href="#" class="hover:text-indigo-600 transition duration-300">About</a>
+                <a href="#" class="hover:text-indigo-600 transition duration-300">Contact</a>
+            </nav>
+            <button class="text-gray-600 hover:text-indigo-600 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <section
+            class="mb-16 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-r from-indigo-500 to-purple-600 p-8 md:p-16 relative">
+            <div class="absolute inset-0 opacity-1 bg-cover bg-center"
+                style="background-image: url('images/bannner.png');"></div>
+            <div class="relative z-10 max-w-4xl text-white">
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-4 leading-tight drop-shadow-lg">
+                    Discover <span class="text-yellow-300">Unbeatable</span> Deals Today
+                </h1>
+                <p class="text-lg md:text-xl mb-8 opacity-90 w-[50%]">
+                    Explore our curated collection of the latest electronics, fashion trends, and home essentials.
+                    Quality guaranteed.
+                </p>
+                <button
+                    onclick="document.getElementById('product-grid-section').scrollIntoView({ behavior: 'smooth' });"
+                    class="bg-yellow-400 text-indigo-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105">
+                    Shop Now
+                </button>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <div id="slider-container" class="relative overflow-hidden rounded-xl shadow-xl">
+                <div id="slider-track" class="flex transition-transform duration-500 ease-in-out">
+                    <div class="w-full flex-shrink-0">
+                        <img src="images/electronicsBanners.png" alt="Slider 1: Electronics Sale"
+                            class="w-full h-48 sm:h-64 md:h-80 object-cover">
+                    </div>
+                    <div class="w-full flex-shrink-0">
+                        <img src="images/newArrivlas.png" alt="Slider 2: New Arrivals"
+                            class="w-full h-48 sm:h-64 md:h-80 object-cover">
+                    </div>
+                    <div class="w-full flex-shrink-0">
+                        <img src="images/HomeBanner.png" alt="Slider 3: Home Essentials"
+                            class="w-full h-48 sm:h-64 md:h-80 object-cover">
+                    </div>
+                </div>
+
+                <button id="prev-slide"
+                    class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 p-3 rounded-full text-white hover:bg-opacity-75 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button id="next-slide"
+                    class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 p-3 rounded-full text-white hover:bg-opacity-75 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Browse by Category</h2>
+            <div id="category-filter" class="flex flex-wrap justify-center gap-3">
+
+                <button data-category="All"
+                    class="filter-btn bg-indigo-600 text-white px-5 py-2 rounded-full font-medium shadow-md hover:bg-indigo-700 transition duration-300 transform hover:scale-105">All</button>
+                <button data-category="1"
+                    class="filter-btn bg-white text-gray-700 px-5 py-2 rounded-full font-medium shadow-md border border-gray-200 hover:bg-gray-100 transition duration-300">Electronics</button>
+                <button data-category="2"
+                    class="filter-btn bg-white text-gray-700 px-5 py-2 rounded-full font-medium shadow-md border border-gray-200 hover:bg-gray-100 transition duration-300">Apparel
+                    & Fashion</button>
+                <button data-category="3"
+                    class="filter-btn bg-white text-gray-700 px-5 py-2 rounded-full font-medium shadow-md border border-gray-200 hover:bg-gray-100 transition duration-300">Home
+                    & Kitchen</button>
+            </div>
+        </section>
+
+        <section id="product-grid-section" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Featured Products</h2>
+            <div id="product-grid"
+                class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+            </div>
+            <div id="no-products" class="hidden text-center text-xl text-gray-500 mt-12">No products found in this
+                category.</div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-[#9E428E]">Man online store</h3>
+                    <p class="text-sm text-gray-400">Your one-stop shop for everything you need.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 border-b border-indigo-500 pb-1">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-indigo-400 transition duration-300">About Us</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition duration-300">FAQ</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition duration-300">Shipping</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition duration-300">Returns</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 border-b border-indigo-500 pb-1">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-indigo-400 transition duration-300">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition duration-300">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition duration-300">License</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 border-b border-indigo-500 pb-1">Stay Connected</h4>
+                    <ul class="space-y-2 text-sm mb-4">
+                        <li><a href="#" class="hover:text-indigo-400 transition duration-300">Contact Us</a></li>
+                    </ul>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="text-gray-400 hover:text-indigo-400 transition duration-300 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M12 2C6.477 2 2 6.477 2 12c0 5.016 3.655 9.18 8.44 9.998V14.5h-2.5v-2.5h2.5V10c0-2.54 1.545-3.92 3.8-3.92 1.08 0 2.21.192 2.21.192v2.4h-1.218c-1.187 0-1.554.734-1.554 1.487v1.78h2.693l-.43 2.5h-2.263V22c4.785-.818 8.44-4.982 8.44-9.998C22 6.477 17.523 2 12 2z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-indigo-400 transition duration-300 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M22 4.01c-.724.322-1.494.54-2.296.64.836-.502 1.48-1.294 1.786-2.24-.784.46-1.65.794-2.57.973C17.702 3.235 16.51 2.5 15.228 2.5c-2.265 0-4.098 1.833-4.098 4.098 0 .32.036.63.106.924-3.407-.17-6.425-1.8-8.446-4.286-.352.604-.556 1.306-.556 2.053 0 1.42 1.085 2.605 2.52 3.14-.997-.03-1.933-.306-2.744-.754v.05c0 1.986 1.417 3.647 3.295 4.02-.344.094-.707.144-1.08.144-.265 0-.525-.024-.775-.074.524 1.637 2.037 2.825 3.834 2.86C8.243 18.25 6.38 18.773 4.417 18.773c-.322 0-.64-.02-1.02-.06.27 1.79 1.574 3.32 3.298 3.682C8.36 22.38 12.02 23.5 16.034 23.5c4.773 0 7.39-3.957 7.39-7.39 0-.113-.002-.224-.006-.334.508-.367.955-.83 1.305-1.34z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center border-t border-gray-700 pt-8">
+                <p class="text-sm text-gray-400">&copy; 2025 Man online Store. All rights reserved. Built with Tailwind CSS.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
